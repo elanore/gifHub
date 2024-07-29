@@ -1,7 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+
+import './App.css';
+
+const router = createBrowserRouter([
+  {
+    element:<AppLayout/>,
+
+    children: [
+      {
+        path:'/',
+        element:<Home/>
+      }
+    ]
+
+  }
+])
 
 function App() {
   const [count, setCount] = useState(0)
