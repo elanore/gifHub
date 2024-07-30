@@ -5,17 +5,32 @@ import './App.css';
 
 const router = createBrowserRouter([
   {
-    element:<AppLayout/>,
+    element: <AppLayout />,
 
     children: [
       {
-        path:'/',
-        element:<Home/>
-      }
-    ]
-
-  }
-])
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/:category",
+        element: <Category />,
+      },
+      {
+        path: "/:favourites",
+        element: <Favourites />,
+      },
+      {
+        path: "/search/:query",
+        element: <Search />,
+      },
+      {
+        path: "/:type/:slug",
+        element: <GifPage />,
+      },
+    ],
+  },
+]);
 
 function App() {
   const [count, setCount] = useState(0)
