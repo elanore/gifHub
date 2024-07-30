@@ -1,7 +1,13 @@
-import { useState } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+//import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout";
+import Category from "./pages/Category";
+import  Favourites from "./pages/Favourites";
+import Home from "./pages/Home";
+import  Search from "./pages/Search";
+import  GifPage from "./pages/GifPage";
 
-import './App.css';
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -16,14 +22,15 @@ const router = createBrowserRouter([
         path: "/:category",
         element: <Category />,
       },
-      {
-        path: "/:favourites",
-        element: <Favourites />,
-      },
+     
       {
         path: "/search/:query",
         element: <Search />,
       },
+    {
+      path: "/fav",
+      element: <Favourites/>
+    },
       {
         path: "/:type/:slug",
         element: <GifPage />,
@@ -33,16 +40,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    
-      <div>
-        <h1>Hello Shiny</h1>
-      </div>
-      
-   
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
