@@ -4,3 +4,4 @@
 - categories
 - search
 - favourites
+- added header 
