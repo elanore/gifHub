@@ -1,8 +1,13 @@
 //import React from 'react'
 
+import { useState } from "react"
+
 const Header = () => {
+
+  const [categories,setCategories]= useState([]);
+  const [showCategories,setshowCategories] =useState(false)
   return (
-    <div>Header</div>
+    <div className="header ">Header</div>
   )
 }
 
