@@ -1,4 +1,3 @@
-//import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import Category from "./pages/Category";
