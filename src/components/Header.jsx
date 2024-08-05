@@ -15,25 +15,41 @@ const Header = () => {
             GIPHY
           </h1>
         </Link>
-        {/* Render categories */}
-        <Link className="px-4 py-1 hover:gradient border-b-4 hidden lg:block">
-          Reactions
-        </Link>
-        <button onClick={() => setShowCategories(!showCategories)}>
-          <HiEllipsisVertical
-            size={35}
-            className={`py-0.5 hover:gradient  ${
-              showCategories ? "gradient" : ""
-            }border-b-4 hidden lg:block`}
-          />
-        </button>
-        <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
-          <Link to="/favourites">Favourite GIFs</Link>
+        <div className="font-bold text-md flex gap-2 items-center">
+          {/* Render categories */}
+          <Link className="px-4 py-1 hover:gradient border-b-4 hidden lg:block">
+            Reactions
+          </Link>
+          <button onClick={() => setShowCategories(!showCategories)}>
+            <HiEllipsisVertical
+              size={35}
+              className={`py-0.5 hover:gradient  ${
+                showCategories ? "gradient" : ""
+              }border-b-4 hidden lg:block`}
+            />
+          </button>
+          <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
+            <Link to="/favourites">Favourite GIFs</Link>
+          </div>
+          <button>
+            <HiMiniBars3BottomRight
+              className="text-sky-300 block lg:hidden"
+              size={30}
+            />
+          </button>
         </div>
-        <button>
-          <HiMiniBars3BottomRight  className="text-sky-300 block lg:hidden"/>
-        </button>
+
+        {showCategories && (
+          <div className="absolute right-0 top-14 px-10 pt-6 pb-9 w-full gradient z-20">
+            <span>Categories</span>
+            <hr />
+            <div>
+              <Link className="font-bold">Rections</Link>
+            </div>
+          </div>
+        )}
       </div>
+      {/* search*/ }
     </nav>
   );
 };
