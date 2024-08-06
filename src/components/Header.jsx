@@ -49,7 +49,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      {/* search*/ }
+      {/* search*/}
     </nav>
   );
 };

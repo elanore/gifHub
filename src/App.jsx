@@ -5,8 +5,10 @@ import  Favourites from "./pages/Favourites";
 import Home from "./pages/Home";
 import  Search from "./pages/Search";
 import  GifPage from "./pages/GifPage";
+import GifProvider from "./context/Contextgif";
 
 import "./App.css";
+
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return 
+  // eslint-disable-next-line no-unreachable
+  <GifProvider>
+    <RouterProvider router={router} />;
+  </GifProvider>;
 }
 
 export default App;
