@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiEllipsisVertical, HiMiniBars3BottomRight } from "react-icons/hi2";
+import { GifState } from "../context/Contextgif";
 
 const Header = () => {
   //const [categories,setCategories]=useState([]);
   const [showCategories, setShowCategories] = useState(false);
+
+  const { gif } = GifState();
 
   return (
     <nav>
