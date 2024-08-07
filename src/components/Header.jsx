@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiEllipsisVertical, HiMiniBars3BottomRight } from "react-icons/hi2";
 import { GifState } from "../context/Contextgif";
@@ -9,10 +9,14 @@ const Header = () => {
 
   const { gif, filter, setFilter, favorites } = GifState();
 
-  const fetchGifCategories = async()=>{
-    const {data} = await gif.categories();
+  const fetchGifCategories = async () => {
+    const { data } = await gif.categories();
     setShowCategories(data);
-  }
+  };
+
+  useEffect(() => {
+    fetchGifCategories();
+  }, []);
 
   return (
     <nav>
