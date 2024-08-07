@@ -7,7 +7,7 @@ const Header = () => {
   //const [categories,setCategories]=useState([]);
   const [showCategories, setShowCategories] = useState(false);
 
-  const { gif } = GifState();
+  const { gif, filter, setFilter, favorites } = GifState();
 
   return (
     <nav>

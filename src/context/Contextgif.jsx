@@ -10,7 +10,7 @@ const GifProvider = ({ children }) => {
 
   const gif = new GiphyFetch(import.meta.VITE_GIPHY_KEY);
 
-  return <GifContext.Provider value={{ gif }}>{children}</GifContext.Provider>;
+  return <GifContext.Provider value={{ gif ,gifs,setGifs,filter,setFilter,favorites}}>{children}</GifContext.Provider>;
 };
 
 export const GifState = () => {
