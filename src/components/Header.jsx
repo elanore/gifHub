@@ -9,6 +9,11 @@ const Header = () => {
 
   const { gif, filter, setFilter, favorites } = GifState();
 
+  const fetchGifCategories = async()=>{
+    const {data} = await gif.categories();
+    setShowCategories(data);
+  }
+
   return (
     <nav>
       <div className="relative flex gap-4 justify-between items-center mb-2">
