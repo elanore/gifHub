@@ -4,7 +4,7 @@ import { HiEllipsisVertical, HiMiniBars3BottomRight } from "react-icons/hi2";
 import { GifState } from "../context/Contextgif";
 
 const Header = () => {
-  //const [categories,setCategories]=useState([]);
+  const [categories, setCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
 
   const { gif, filter, setFilter, favorites } = GifState();
@@ -29,9 +29,18 @@ const Header = () => {
         </Link>
         <div className="font-bold text-md flex gap-2 items-center">
           {/* Render categories */}
-          <Link className="px-4 py-1 hover:gradient border-b-4 hidden lg:block">
-            Reactions
-          </Link>
+          {categories?.slice(0, 5)?.map((category) => {
+            return (
+              <Link
+                key={category.name}
+                to={`/${category.name_encoded}`}
+                className="px-4 py-1 hover:gradient border-b-4 hidden lg:block"
+              >
+                {category.name}
+              </Link>
+            );
+          })}
+
           <button onClick={() => setShowCategories(!showCategories)}>
             <HiEllipsisVertical
               size={35}
