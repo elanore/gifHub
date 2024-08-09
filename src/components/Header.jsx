@@ -49,9 +49,12 @@ const Header = () => {
               }border-b-4 hidden lg:block`}
             />
           </button>
-          <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
-            <Link to="/favourites">Favourite GIFs</Link>
-          </div>
+          {favorites.length > 0 && (
+            <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
+              <Link to="/favourites">Favourite GIFs</Link>
+            </div>
+          )}
+
           <button>
             <HiMiniBars3BottomRight
               className="text-sky-300 block lg:hidden"
@@ -62,10 +65,20 @@ const Header = () => {
 
         {showCategories && (
           <div className="absolute right-0 top-14 px-10 pt-6 pb-9 w-full gradient z-20">
-            <span>Categories</span>
-            <hr />
-            <div>
-              <Link className="font-bold">Rections</Link>
+            <span className="text-3xl font-extrabold">Categories</span>
+            <hr className="bg-gray-100 opacity-60 my-5" />
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              {categories.map((category) => {
+                return (
+                  <Link
+                    key={category.name}
+                    className="font-bold"
+                    to={`/category.name_encoded`}
+                  >
+                    {category.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}
